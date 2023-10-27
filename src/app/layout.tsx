@@ -1,14 +1,10 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
-import { Header } from '@/components/Header'
+import { AuthProvider } from '@/providers/authProvider'
+import { ReduxProvider } from '@/providers/reduxProvider'
 
 const inter = Inter({ subsets: ['latin'] })
-
-export const metadata: Metadata = {
-  title: 'Репетиторський центр Філін',
-  description: 'Сайт репетиторського центру Філін',
-}
 
 export default function RootLayout({
   children,
@@ -18,7 +14,11 @@ export default function RootLayout({
   return (
     <html lang="ua">
       <body className={inter.className}>
-        {children}
+        <ReduxProvider>
+          <AuthProvider>
+            {children}
+          </AuthProvider>
+        </ReduxProvider>
       </body>
     </html>
   )

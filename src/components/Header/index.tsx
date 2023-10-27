@@ -1,8 +1,8 @@
 'use client'
-
 import { adminNavRoutes, authorizationNavRoutes, headerNavRoutes } from "@/consts/routes"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
+import { AuthorizationNav } from "./AuthorizationNav"
 
 export const Header = () => {
     const pathname = usePathname();
@@ -19,17 +19,7 @@ export const Header = () => {
                 </Link>
             )}
         </nav>
-        <nav aria-label="authorization label" className="flex gap-3">
-            {Object.keys(authorizationNavRoutes).map(navKey => 
-                pathname === authorizationNavRoutes[navKey].route
-                ? <Link className="underline" key={navKey} href={authorizationNavRoutes[navKey].route}>
-                    {authorizationNavRoutes[navKey].title}
-                </Link>
-                : <Link key={navKey} href={authorizationNavRoutes[navKey].route}>
-                    {authorizationNavRoutes[navKey].title}
-                </Link>
-            )}
-            <Link href={adminNavRoutes.classes.route}>ADMIN</Link>
-        </nav>
+        <AuthorizationNav pathname={pathname}/>
+        <Link href={adminNavRoutes.classes.route}>ADMIN</Link>
     </header>
 }
