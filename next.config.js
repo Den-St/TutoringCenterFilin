@@ -1,6 +1,8 @@
 /** @type {import('next').NextConfig} */
+
 const nextConfig = {
-    output: 'export'
+    output: 'export',
+    basePath: '/TutoringCenterFilin',
 }
 
 module.exports = nextConfig
