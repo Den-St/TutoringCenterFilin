@@ -20,6 +20,5 @@ export const Header = () => {
             )}
         </nav>
         <AuthorizationNav pathname={pathname}/>
-        <Link href={adminNavRoutes.classes.route}>ADMIN</Link>
     </header>
 }
