@@ -6,7 +6,8 @@ export enum collectionsKeys {
     courses = "courses",
     courseThemes = "courseThemes",
     videoLessons = "videoLessons",
-    tests = "tests"
+    tests = "tests",
+    aboutUsSections = "aboutUsSections"
 };
 
 export const classesCollection = collection(db,collectionsKeys.classes);
@@ -14,3 +15,4 @@ export const coursesCollection = collection(db,collectionsKeys.courses);
 export const courseThemesCollection = collection(db,collectionsKeys.courseThemes);
 export const videoLessonsCollection = collection(db,collectionsKeys.videoLessons);
 export const testsCollection = collection(db,collectionsKeys.tests);
+export const aboutUsSectionCollection = collection(db,collectionsKeys.aboutUsSections);

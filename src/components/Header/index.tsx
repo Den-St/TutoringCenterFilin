@@ -4,6 +4,7 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { AuthorizationNav } from "./AuthorizationNav"
 import { VideoCoursesNav } from "./VideoCoursesNav"
+import { AboutUsSectionsNav } from "./AboutUsSectionsNav"
 
 export const Header = () => {
     const pathname = usePathname();
@@ -20,6 +21,7 @@ export const Header = () => {
                 </Link>
             )}
             <VideoCoursesNav/>
+            <AboutUsSectionsNav/>
         </nav>
         <AuthorizationNav pathname={pathname}/>
     </header>

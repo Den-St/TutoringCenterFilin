@@ -4,7 +4,7 @@ export const routes = {
     home:'/',
     videoCourses:(id:string) => `/video-courses/${id}`,
     tests:'/tests',
-    aboutUs:'/about-us',
+    aboutUs:(id:string) => `/about-us/${id}`,
     registration:'/registration',
     logIn:'/log-in',
 } as const;
@@ -22,10 +22,10 @@ export const headerNavRoutes:Record<string,navRoutesType> = {
         title:'Тести',
         route:routes.tests,
     },
-    aboutUs:{
-        title:'Про нас',
-        route:routes.aboutUs,
-    }
+    // aboutUs:{
+    //     title:'Про нас',
+    //     route:routes.aboutUs,
+    // }
 } as const;
 
 export const authorizationNavRoutes:Record<string,navRoutesType> = {
