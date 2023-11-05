@@ -1,8 +1,9 @@
 'use client'
-import { adminNavRoutes, authorizationNavRoutes, headerNavRoutes } from "@/consts/routes"
+import { authorizationNavRoutes, headerNavRoutes } from "@/consts/routes"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { AuthorizationNav } from "./AuthorizationNav"
+import { VideoCoursesNav } from "./VideoCoursesNav"
 
 export const Header = () => {
     const pathname = usePathname();
@@ -18,6 +19,7 @@ export const Header = () => {
                     {headerNavRoutes[navKey].title}
                 </Link>
             )}
+            <VideoCoursesNav/>
         </nav>
         <AuthorizationNav pathname={pathname}/>
     </header>
