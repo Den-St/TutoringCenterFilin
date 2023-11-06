@@ -1,10 +1,11 @@
 'use client'
-import { authorizationNavRoutes } from "@/consts/routes";
+import { authorizationNavRoutes, routes } from "@/consts/routes";
 import { useLogout } from "@/hooks/logout";
 import { useAppSelector } from "@/hooks/redux";
 import {LogoutOutlined} from '@ant-design/icons';
 import { Popconfirm } from "antd";
 import Link from "next/link";
+import {ShoppingCartOutlined} from '@ant-design/icons';
 
 export const AuthorizationNav:React.FC<{pathname:string}> = ({pathname}) => {
     const user = useAppSelector(state => state.user);
@@ -23,6 +24,7 @@ export const AuthorizationNav:React.FC<{pathname:string}> = ({pathname}) => {
                 </Link>
             )}
         {user?.displayName || (user?.name + ' ' + user?.surname)}
+        <Link href={routes.cart}><ShoppingCartOutlined /></Link>
         {!!user?.id && <Popconfirm
                         title="Logout from account"
                         description="Are you sure to logout from account?"

@@ -26,7 +26,7 @@ export const useBuy = (type:CartItemTypeT,productId:string) => {
     const onBuy = async () => {
         if(!userId || !productId) return;
         setLoading(true);
-        await addCartItem({userId,productId,type,number:1});
+        await addCartItem({user:userId,product:productId,type,});
         setIsAlredyInCart(true);
         setLoading(false);
     }

@@ -1,16 +1,15 @@
+import { CourseThemeT } from './courseThemes';
 export type CartItemT = {
     id:string,
-    number:number,
-    productId:string,
-    userId:string
+    product:CourseThemeT,
+    user:string
     type:CartItemTypeT
 }
 
 export type CreateCartItemT = {
-    number:number,
-    productId:string
+    product:string
     type:CartItemTypeT,
-    userId:string
+    user:string
 }
 
 export type CartItemTypeT = 'test' | 'theme';

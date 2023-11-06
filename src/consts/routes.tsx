@@ -7,6 +7,7 @@ export const routes = {
     aboutUs:(id:string) => `/about-us/${id}`,
     registration:'/registration',
     logIn:'/log-in',
+    cart:'/cart'
 } as const;
 
 export const headerNavRoutes:Record<string,navRoutesType> = {
