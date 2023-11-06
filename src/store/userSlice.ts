@@ -7,6 +7,8 @@ const initialState:UserT = {
     displayName:'',
     photoURL:'',   
     id:'',
+    name:'',
+    surname:''
 }
 
 const userSlice = createSlice({
@@ -19,6 +21,8 @@ const userSlice = createSlice({
             state.displayName = payload?.payload.displayName;
             state.photoURL = payload?.payload.photoURL;
             state.id = payload?.payload.id; 
+            state.name = payload?.payload.name;
+            state.surname = payload?.payload.surname;
         },
         clearAuthedUser(state){
             state.email = '';
@@ -26,6 +30,8 @@ const userSlice = createSlice({
             state.displayName = '';
             state.photoURL = '';
             state.id = ''; 
+            state.name = '';
+            state.surname = '';
         },
     }
 });

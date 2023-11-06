@@ -1,6 +1,7 @@
 'use client'
 import { routes } from "@/consts/routes";
 import { useAppSelector } from "@/hooks/redux"
+import { useBuy } from "@/hooks/useBuy";
 import { CourseT } from "@/types/course";
 import { CourseThemeT } from "@/types/courseThemes";
 import { Button, Spin } from "antd"
@@ -12,9 +13,11 @@ type Props = {
 
 export const BuyVideoCourseButton:React.FC<Props> = ({courseTheme}) => {
     const isAuthed = !!useAppSelector(user => user.user.id);
-    const onBuy = () => {
+    const {onBuy,isAlreadyInCart,loading} = useBuy('theme',courseTheme.id);
 
-    }
-    return isAuthed ? <Button>Купити за {courseTheme.price} грн.</Button> 
+    if(loading) return <Spin/>
+    return isAuthed ? <Button disabled={isAlreadyInCart} onClick={onBuy} loading={loading}>
+                        {!isAlreadyInCart ? `Купити за ${courseTheme.price} грн.` : 'Тема вже в карзині'}
+                      </Button> 
                     : <Link href={routes.logIn}>Купити за {courseTheme.price} грн.</Link>
 }

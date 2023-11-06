@@ -22,7 +22,7 @@ export const AuthorizationNav:React.FC<{pathname:string}> = ({pathname}) => {
                     {authorizationNavRoutes[navKey].title}
                 </Link>
             )}
-        {user?.email}
+        {user?.displayName || (user?.name + ' ' + user?.surname)}
         {!!user?.id && <Popconfirm
                         title="Logout from account"
                         description="Are you sure to logout from account?"
