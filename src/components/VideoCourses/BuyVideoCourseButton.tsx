@@ -6,6 +6,7 @@ import { CourseT } from "@/types/course";
 import { CourseThemeT } from "@/types/courseThemes";
 import { Button, Spin } from "antd"
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 type Props = {
     courseTheme:CourseThemeT,
@@ -13,6 +14,7 @@ type Props = {
 
 export const BuyVideoCourseButton:React.FC<Props> = ({courseTheme}) => {
     const isAuthed = !!useAppSelector(user => user.user.id);
+    
     const {onBuy,isAlreadyInCart,loading} = useBuy('theme',courseTheme.id);
 
     if(loading) return <Spin/>
