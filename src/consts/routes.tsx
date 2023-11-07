@@ -8,7 +8,7 @@ export const routes = {
     registration:'/registration',
     logIn:'/log-in',
     cart:'/cart',
-    purchasedItem:(id:string) => `/purchasedItems/${id}`,
+    purchasedItem:(id:string) => `/purchased-items?id=${id}`,
     myProfile:'/my-profile',
 } as const;
 

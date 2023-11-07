@@ -7,7 +7,7 @@ export const getCourseThemeById = async (id:string) => {
     try{
         const document = doc(db,collectionsKeys.courseThemes,id);
         const courseTheme = (await getDoc(document)).data();
-
+        
         return {...courseTheme,id} as CourseThemeT;
     }catch(err){
         console.error(err);
