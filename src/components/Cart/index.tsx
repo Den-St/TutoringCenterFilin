@@ -10,8 +10,10 @@ export const CartPageComponent = () => {
         ? cartItems.map(cartItem => 
             <div key={cartItem.id} className="p-4 flex justify-between items-center border-black border-2 border-solid">
                 {cartItem.product.name}
-                {cartItem.product.price + ` грн.`}
-                <Button danger loading={loading.delete} disabled={loading.delete} onClick={() => onDeleteCartItem(cartItem.id)}><DeleteOutlined /></Button>
+                <div className="flex gap-4 items-center">
+                    {cartItem.product.price + ` грн.`}
+                    <Button danger loading={loading.delete} disabled={loading.delete} onClick={() => onDeleteCartItem(cartItem.id)}><DeleteOutlined /></Button>
+                </div>
             </div>)     
         : <Spin/>}
     </div>

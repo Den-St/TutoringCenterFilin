@@ -9,7 +9,7 @@ import { AboutUsSectionsNav } from "./AboutUsSectionsNav"
 export const Header = () => {
     const pathname = usePathname();
 
-    return <header className="w-full bg-green-100 p-5 flex justify-around ">
+    return <header className="w-full bg-green-100 p-5 flex justify-around items-center">
         <nav aria-label="content navigation" className="flex gap-3">
             {Object.keys(headerNavRoutes).map(navKey => 
                 pathname === headerNavRoutes[navKey].route

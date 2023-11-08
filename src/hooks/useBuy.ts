@@ -7,12 +7,21 @@ import { getIsAlredyInCart } from '@/firebase/db/cartItems/get/getIsAlreadyInCar
 import { addCartItem } from '@/firebase/db/cartItems/create/addCartItem';
 import { CartItemTypeT } from '@/types/cartItem';
 import { useRouter } from 'next/navigation';
+import { notification } from 'antd';
 
 
-export const useBuy = (type:CartItemTypeT,productId:string,) => {
+export const useBuy = (type:CartItemTypeT,productId:string,productName:string) => {
     const userId = useAppSelector(state => state.user.id);
     const router = useRouter();
+    const [api, contextHolder] = notification.useNotification();
 
+    const openNotification = () => {
+      api.info({
+        message: `Ви додали курс до корзини`,
+        description: `Курс '${productName}' було додано до вашої корзини`,
+        placement:'topRight',
+      });
+    };
     const [loading,setLoading] = useState(false);
     const [isAlreadyInCart,setIsAlredyInCart] = useState(false);
 
@@ -33,9 +42,10 @@ export const useBuy = (type:CartItemTypeT,productId:string,) => {
         setLoading(true);
         await addCartItem({user:userId,product:productId,type,});
         setIsAlredyInCart(true);
+        openNotification();
         setLoading(false);
         router.push(routes.cart);
     }
 
-    return {onBuy,loading,isAlreadyInCart};
+    return {onBuy,loading,isAlreadyInCart,contextHolder};
 }

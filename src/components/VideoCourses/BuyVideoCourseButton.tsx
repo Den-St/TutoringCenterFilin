@@ -15,11 +15,14 @@ type Props = {
 export const BuyVideoCourseButton:React.FC<Props> = ({courseTheme}) => {
     const isAuthed = !!useAppSelector(user => user.user.id);
     
-    const {onBuy,isAlreadyInCart,loading} = useBuy('theme',courseTheme.id);
+    const {onBuy,isAlreadyInCart,loading,contextHolder} = useBuy('theme',courseTheme.id,courseTheme.name);
 
     if(loading) return <Spin/>
-    return isAuthed ? <Button disabled={isAlreadyInCart} onClick={onBuy} loading={loading}>
-                        {!isAlreadyInCart ? `Купити за ${courseTheme.price} грн.` : 'Тема вже в карзині'}
-                      </Button> 
+    return isAuthed ? <>
+                        {contextHolder}
+                        <Button disabled={isAlreadyInCart} onClick={onBuy} loading={loading}>
+                          {!isAlreadyInCart ? `Купити за ${courseTheme.price} грн.` : 'Тема вже в корзині'}
+                        </Button>
+                      </>
                     : <Link href={routes.logIn}>Купити за {courseTheme.price} грн.</Link>
 }

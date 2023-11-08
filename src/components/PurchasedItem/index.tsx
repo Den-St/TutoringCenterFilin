@@ -10,8 +10,7 @@ import { TestsComponent } from "./TestsComponent";
 
 export const PurchasedItemComponent = () => {
     const {item,loading} = usePurchasedItem();
-
-    
+        
     return <div className="flex flex-col gap-10 m-10">
         <div className="flex flex-col">
             {!loading.courseTheme ? <h1>{item?.courseTheme.name}</h1> : <Spin/>}

@@ -1,4 +1,6 @@
-import { useRouter } from 'next/router';
+import { routes } from '@/consts/routes';
+import { useAppSelector } from './redux';
+import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 import { VideoLessonT } from './../types/videoLesson';
 import { useParams, useSearchParams } from 'next/navigation';
@@ -10,6 +12,8 @@ import { CourseThemeT } from '@/types/courseThemes';
 
 export const usePurchasedItem = () => {
     const itemId = useSearchParams().get('id');
+    const userId = useAppSelector(state => state.user.id);
+    const router = useRouter();
     const [loading,setLoading] = useState<{courseTheme:boolean,videos:boolean,tests:boolean,}>({courseTheme:false,videos:false,tests:false,});
     const [item,setItem] = useState<{
         courseTheme:CourseThemeT,
@@ -18,10 +22,11 @@ export const usePurchasedItem = () => {
     }>();
 
     const fetchItem = async () => {
-        if(!itemId) return;
+        if(!itemId || !userId) return;
         setLoading(prev => ({...prev,item:true}));
-        const res = await getPurchasedItemById(itemId);
+        const res = await getPurchasedItemById(itemId,userId);
         if(!res){
+            router.push(routes.home);
             setLoading(prev => ({...prev,item:false}));
             return;
         }
@@ -31,7 +36,7 @@ export const usePurchasedItem = () => {
 
     useEffect(() => {
         fetchItem();
-    },[itemId]);
-    console.log(item);
+    },[itemId,userId]);
+
     return {loading,item};
 }
