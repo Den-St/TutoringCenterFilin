@@ -26,10 +26,10 @@ export const AuthorizationNav:React.FC<{pathname:string}> = ({pathname}) => {
                     {authorizationNavRoutes[navKey].title}
                 </Link>
             )}
-        <div className="flex items-center gap-4 mr-5">
+        {user.id && <div className="flex items-center gap-4 mr-5">
             <Link href={routes.myProfile}>{user?.displayName || (user?.name + ' ' + user?.surname)}</Link>
             <CartComponent/>
-        </div>
+        </div>}
         {!!user?.id && <Popconfirm
                         title="Logout from account"
                         description="Are you sure to logout from account?"
