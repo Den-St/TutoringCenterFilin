@@ -3,7 +3,7 @@ import { navRoutesType } from "@/types/routes";
 export const routes = {
     home:'/',
     videoCourses:(id:string) => `/video-courses/${id}`,
-    tests:'/tests',
+    // tests:'/tests',
     aboutUs:(id:string) => `/about-us/${id}`,
     registration:'/registration',
     logIn:'/log-in',
@@ -21,10 +21,10 @@ export const headerNavRoutes:Record<string,navRoutesType> = {
     //     title:'Відеокурси',
     //     route:routes.videoCourses,
     // },
-    tests:{
-        title:'Тести',
-        route:routes.tests,
-    },
+    // tests:{
+    //     title:'Тести',
+    //     route:routes.tests,
+    // },
     // aboutUs:{
     //     title:'Про нас',
     //     route:routes.aboutUs,

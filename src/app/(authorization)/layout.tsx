@@ -16,6 +16,6 @@ export default function AuthorizationLayout({
 }) {
   return <>
       <Header/>
-      <div className='flex justify-center'>{children}</div>
+      <div className='flex justify-center p-14 bg-slate-400 min-w-screen min-h-screen'>{children}</div>
     </>
 }

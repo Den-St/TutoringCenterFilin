@@ -1,3 +1,3 @@
 export default function Tests() {
-    return <>Tests</>
+    return <>Тести</>
 }
