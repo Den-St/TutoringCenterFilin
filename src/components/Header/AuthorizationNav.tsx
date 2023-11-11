@@ -8,6 +8,7 @@ import Link from "next/link";
 import {ShoppingCartOutlined} from '@ant-design/icons';
 import { useRouter } from "next/navigation";
 import { CartComponent } from "./CartComponent";
+import './styles.scss';
 
 export const AuthorizationNav:React.FC<{pathname:string}> = ({pathname}) => {
     const user = useAppSelector(state => state.user);
@@ -36,7 +37,7 @@ export const AuthorizationNav:React.FC<{pathname:string}> = ({pathname}) => {
                         onConfirm={onLogout}
                         okText="Yes"
                         cancelText="No">
-                        <button className="text-white"><LogoutOutlined /></button>
+                        <button className="text-white bg-transparent"><LogoutOutlined /></button>
                     </Popconfirm>}
     </nav>
 }
