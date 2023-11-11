@@ -13,6 +13,8 @@ export default function RootLayout({
 }) {
   return <div className='flex flex-col'>
         <Header/>
-        {children}
+        <div className='p-14 bg-slate-400 min-w-screen min-h-screen'>
+          {children}
+        </div>
       </div>
 }

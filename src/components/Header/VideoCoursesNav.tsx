@@ -7,6 +7,6 @@ export const VideoCoursesNav = () => {
     
     if(loading) return;
     return <>
-        <Dropdown menu={{items:menuItems}}><p>Відеокурси</p></Dropdown>
+        <Dropdown menu={{items:menuItems}}><p className="text-white">Відеокурси</p></Dropdown>
     </>
 }

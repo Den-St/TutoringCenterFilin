@@ -6,6 +6,6 @@ export const AboutUsSectionsNav = () => {
     
     if(loading) return;
     return <>
-        <Dropdown placement="bottom" menu={{items:menuItems}}><p>Про нас</p></Dropdown>
+        <Dropdown placement="bottom" menu={{items:menuItems}}><p className="text-white">Про нас</p></Dropdown>
     </>
 }

@@ -31,7 +31,7 @@ export const CartComponent = () => {
         return () => unsubscribe();
     },[userId]);
 
-    return <Link className="p-2 relative" href={routes.cart}>
+    return <Link className="p-2 relative text-white" href={routes.cart}>
                 <ShoppingCartOutlined />
                 <p className="absolute top-0 right-0 rounded-full">{countOfItems}</p>
             </Link>

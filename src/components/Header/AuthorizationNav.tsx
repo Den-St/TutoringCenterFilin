@@ -19,15 +19,15 @@ export const AuthorizationNav:React.FC<{pathname:string}> = ({pathname}) => {
         {!user?.id &&
            Object.keys(authorizationNavRoutes).map(navKey => 
                 pathname === authorizationNavRoutes[navKey].route
-                ? <Link className="underline" key={navKey} href={authorizationNavRoutes[navKey].route}>
+                ? <Link className="underline text-white" key={navKey} href={authorizationNavRoutes[navKey].route}>
                     {authorizationNavRoutes[navKey].title}
                 </Link>
-                : <Link key={navKey} href={authorizationNavRoutes[navKey].route}>
+                : <Link key={navKey} className="text-white" href={authorizationNavRoutes[navKey].route}>
                     {authorizationNavRoutes[navKey].title}
                 </Link>
             )}
         {user.id && <div className="flex items-center gap-4 mr-5">
-            <Link href={routes.myProfile}>{user?.displayName || (user?.name + ' ' + user?.surname)}</Link>
+            <Link className="text-white" href={routes.myProfile}>{user?.displayName || (user?.name + ' ' + user?.surname)}</Link>
             <CartComponent/>
         </div>}
         {!!user?.id && <Popconfirm
@@ -36,7 +36,7 @@ export const AuthorizationNav:React.FC<{pathname:string}> = ({pathname}) => {
                         onConfirm={onLogout}
                         okText="Yes"
                         cancelText="No">
-                        <button><LogoutOutlined /></button>
+                        <button className="text-white"><LogoutOutlined /></button>
                     </Popconfirm>}
     </nav>
 }

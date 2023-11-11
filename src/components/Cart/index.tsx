@@ -16,5 +16,9 @@ export const CartPageComponent = () => {
                 </div>
             </div>)     
         : <Spin/>}
+        {!loading.items && !cartItems.length 
+        && <p className="text-white">
+            В корзині нема товару
+        </p>}
     </div>
 }
