@@ -26,6 +26,7 @@ export type CourseThemeT = {
     videoLessons:videoLessonT[],
     tests:ThemeTestT[],
     studyMaterials:ThemeStudyMaterialT[]
+    createdAt:Timestamp | null
 }
 
 // export type CourseThemeT = {
