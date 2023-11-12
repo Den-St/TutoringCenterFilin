@@ -10,12 +10,17 @@ export const routes = {
     cart:'/cart',
     purchasedItem:(id:string) => `/purchased-items?id=${id}`,
     myProfile:'/my-profile',
+    events:'/events',
 } as const;
 
 export const headerNavRoutes:Record<string,navRoutesType> = {
     home:{
         title:'Головна',
         route:routes.home,
+    },
+    events:{
+        title:'Події',
+        route:routes.events,
     },
     // videoCourses:{
     //     title:'Відеокурси',

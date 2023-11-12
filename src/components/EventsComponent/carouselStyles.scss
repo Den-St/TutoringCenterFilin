@@ -1,0 +1,40 @@
+
+.ant-carousel{
+    display:unset;
+}
+.ant-image-img{
+    width:160px !important;
+    height:160px !important;
+    object-fit:contain !important;
+}
+.slick-current{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:rgb(31,32,36);
+    opacity:0.9;
+}
+.slick-active{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:rgb(31,32,36);
+    opacity:0.9;
+}
+.slick-slide{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:rgb(31,32,36);
+    opacity:0.9;
+    position:relative;
+}
+.ant-carousel .slick-initialized .slick-slide {
+    display: flex;
+}
+.slick-slide.slick-active.slick-current{
+    div{
+        display:flex;
+        justify-content:center;
+    }
+}
