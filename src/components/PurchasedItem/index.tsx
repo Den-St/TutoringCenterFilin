@@ -1,4 +1,3 @@
-'use client'
 import { usePurchasedItem } from "@/hooks/purchasedItem";
 import { Spin } from "antd";
 import ReactPlayer from "react-player";
