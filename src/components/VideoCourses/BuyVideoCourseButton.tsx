@@ -17,7 +17,7 @@ export const BuyVideoCourseButton:React.FC<Props> = ({courseTheme}) => {
     
     const {onBuy,isAlreadyInCart,loading,contextHolder} = useBuy('theme',courseTheme.id,courseTheme.name);
 
-    if(loading) return <Spin/>
+    // if(loading) return <Spin/>
     return isAuthed ? <>
                         {contextHolder}
                         <Button disabled={isAlreadyInCart} onClick={onBuy} loading={loading}>
