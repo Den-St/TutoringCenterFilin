@@ -20,7 +20,8 @@ export const PurchasedItemComponent = () => {
         <div className="flex flex-col gap-10">
             {item?.videoLessons.map((video,i) => <div className="flex flex-col gap-5" key={video.videoURL}>
                 <p>{i + 1 + ') ' + video.name}</p>
-                <ReactPlayer className={'youtube__container'} url={video.videoURL} controls={true}/>
+                {/* <ReactPlayer className={'youtube__container'} url={video.videoURL} controls={true}/> */}
+                <div dangerouslySetInnerHTML={{__html:video.videoURL}}/>
                 <p>{video.description}</p>
             </div>)}
         </div>
