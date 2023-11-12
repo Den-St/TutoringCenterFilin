@@ -11,6 +11,8 @@ export const routes = {
     purchasedItem:(id:string) => `/purchased-items?id=${id}`,
     myProfile:'/my-profile',
     events:'/events',
+    freeVideoCourses:`/free-video-courses`,
+    freeVideoCourseItem:(id:string) => `/free-video-courses/${id}`
 } as const;
 
 export const headerNavRoutes:Record<string,navRoutesType> = {
