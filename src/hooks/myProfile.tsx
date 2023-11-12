@@ -23,6 +23,5 @@ export const useMyProfile = () => {
     useEffect(() => {
         fetchPurchasedItems();
     }, [user.id])
-    console.log(purchasedItems)
     return {user,loading,purchasedItems};
 }

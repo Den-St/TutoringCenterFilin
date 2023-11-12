@@ -8,7 +8,6 @@ export const getClassesByNumber = async (number:number) => {
         const docs = await getDocs(q);
         const classesDocs = docs.docs;
         const classes = classesDocs.map(classDoc => classDoc.data());
-        console.log(classesDocs[0]?.id)
 
         classes.forEach((classItem,i) => classItem.id = classesDocs[i]?.id);
 

@@ -18,6 +18,5 @@ export async function generateStaticParams() {
 
 export default async function FreeVideoCoursePage(params:{params:{slug:string}}) {
     const theme = await getCourseThemeById(params.params.slug);
-    console.log('theme',theme)
     return <FreeVideoCourseComponent theme={theme}/>
 }

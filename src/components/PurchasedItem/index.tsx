@@ -10,7 +10,6 @@ import Link from "next/link";
 
 export const PurchasedItemComponent = () => {
     const {item,loading} = usePurchasedItem();
-    console.log(item);
 
     return <div className="flex flex-col gap-10 m-10">
         <div className="flex flex-col">

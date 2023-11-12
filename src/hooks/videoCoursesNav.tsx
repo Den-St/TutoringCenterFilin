@@ -13,7 +13,6 @@ export const useVideoCoursesNav = () => {
         setLoading(true);
         const res = await getVideoCoursesNav();
         // setVideoCourses(res);
-        console.log('gg',res);
         setMenuItems(Object.keys(res).map(key => ({
             key,
             type:'group',

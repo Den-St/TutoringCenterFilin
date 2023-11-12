@@ -15,7 +15,6 @@ export const AuthorizationNav:React.FC<{pathname:string}> = ({pathname}) => {
     const router = useRouter();
     const {onLogout,logout} = useLogout(() => router.push(routes.registration));
     
-    console.log(user);
     return <nav aria-label="authorization label" className="flex gap-3 items-center">
         {!user?.id &&
            Object.keys(authorizationNavRoutes).map(navKey => 

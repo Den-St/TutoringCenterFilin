@@ -1,4 +1,3 @@
-'use client'
 import { routes } from "@/consts/routes";
 import { useVideoCoursesNav } from "@/hooks/videoCoursesNav";
 import { Dropdown, MenuProps } from "antd"

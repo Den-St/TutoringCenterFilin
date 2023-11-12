@@ -11,7 +11,6 @@ export const TestsComponent:React.FC<Props> = ({tests}) => {
     const [activeTest,setActiveTest] = useState<TestT | undefined>(tests.find(test => test.number === 1));
     const [chosenAnswers,setChosenAnswers] = useState<Record<number,number>>();//number of test,number of chosen answer of test;
     const [isFinished,setIsFinished] = useState(false);
-    console.log(chosenAnswers);
 
     const onChooseAnswer = (isChecked:boolean,answerNumber:number) => {
         if(!activeTest) return;

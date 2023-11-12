@@ -1,14 +1,12 @@
 import { CourseThemeT } from "@/types/courseThemes"
 import Link from "next/link"
 import ReactPlayer from "react-player"
-import { VideoPlayer } from "./VideoPlayer"
 
 type Props = {
     theme?:CourseThemeT
 }
 
 export const FreeVideoCourseComponent:React.FC<Props> = ({theme}) => {
-    console.log('the',theme)
     return <div className="flex flex-col gap-10 m-10">
         <div className="flex flex-col">
             <h1>{theme?.name}</h1>

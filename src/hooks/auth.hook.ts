@@ -28,7 +28,6 @@ export const useAuth = () => {
                 createdAt:googleAuthProvider.currentUser?.metadata.creationTime,
                 photoURL:googleAuthProvider.currentUser?.photoURL,
             }
-            console.log('fd',userDataGoogle);
             dispatch(setUser({
                 ...userDataGoogle,...user
             }));

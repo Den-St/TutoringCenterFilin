@@ -6,7 +6,6 @@ import { CourseT } from '../../../../types/course';
 import { db } from '../../../initializeFirebase';
 
 export const getCoursesPaginated = async (paginationData:PaginationType,shortName?:string) => {
-    console.log(paginationData)
     const q = shortName ? query(coursesCollection,orderBy('shortName','desc'),
                     where('shortName',">=",shortName || ''),   
                     where('shortName','<=',(shortName || '') + "\uf8ff"),
