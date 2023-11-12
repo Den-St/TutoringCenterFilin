@@ -14,12 +14,8 @@ export const usePurchasedItem = () => {
     const itemId = useSearchParams().get('id');
     const userId = useAppSelector(state => state.user.id);
     const router = useRouter();
-    const [loading,setLoading] = useState<{courseTheme:boolean,videos:boolean,tests:boolean,}>({courseTheme:false,videos:false,tests:false,});
-    const [item,setItem] = useState<{
-        courseTheme:CourseThemeT,
-        videos:VideoLessonT[],
-        tests:TestT[]
-    }>();
+    const [loading,setLoading] = useState<{courseTheme:boolean}>({courseTheme:false});
+    const [item,setItem] = useState<CourseThemeT>();
 
     const fetchItem = async () => {
         if(!itemId || !userId) return;

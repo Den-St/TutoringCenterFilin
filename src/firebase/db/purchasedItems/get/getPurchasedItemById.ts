@@ -15,13 +15,9 @@ export const getPurchasedItemById = async (id:string,userId:string) => {
         if(item?.user !== userId) return; 
         if(!item) return;
 
-        const [courseTheme,videos,tests] = await Promise.all([
-            await getCourseThemeById(item.product),
-            await getVideoLessonsByCourseThemeId(item.product),
-            await getTestsByCourseThemeId(item.product)
-        ]);
+        const courseTheme = await getCourseThemeById(item.product);
 
-        return {courseTheme:courseTheme as CourseThemeT,videos:videos as VideoLessonT[],tests:tests as TestT[]};
+        return courseTheme as CourseThemeT;
     }catch(err){
         console.error(err);
     }
