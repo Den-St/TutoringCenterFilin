@@ -12,7 +12,9 @@ export const routes = {
     myProfile:'/my-profile',
     events:'/events',
     freeVideoCourses:`/free-video-courses`,
-    freeVideoCourseItem:(id:string) => `/free-video-courses/${id}`
+    freeVideoCourseItem:(id:string) => `/free-video-courses/${id}`,
+    studyMaterials:'/study-materials',
+    studyMaterialItemPage:(id:string) => `/study-materials/${id}`,
 } as const;
 
 export const headerNavRoutes:Record<string,navRoutesType> = {
@@ -23,6 +25,10 @@ export const headerNavRoutes:Record<string,navRoutesType> = {
     events:{
         title:'Події',
         route:routes.events,
+    },
+    studyMaterials:{
+        title:'Посібники',
+        route:routes.studyMaterials,
     },
     // videoCourses:{
     //     title:'Відеокурси',

@@ -2,8 +2,7 @@
 import { PurchasedItemComponent } from "@/components/PurchasedItem"
 
 
-function PurchasedItemPage({ params }: { params: { slug: string } }) {
-  
+function PurchasedItemPage() {
   return <PurchasedItemComponent/>
 }
   

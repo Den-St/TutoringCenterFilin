@@ -11,6 +11,7 @@ export async function generateStaticParams() {
 
     return courses.map(course => ({slug:course.id}))
 }
+export const revalidate = 600;
 
 export default async function VideoCourseItemPage(params:{params:{slug:string}}) {
     const [course,themes] = await Promise.all([getCourseById(params.params.slug),await getCourseThemesByCourseId(params.params.slug)]);

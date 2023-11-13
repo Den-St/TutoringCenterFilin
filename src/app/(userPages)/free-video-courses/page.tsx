@@ -2,6 +2,8 @@ import { routes } from "@/consts/routes";
 import { getFreeCourseThemes } from "@/firebase/db/courseThemes/get/getFreeCourseThemes"
 import Link from "next/link";
 
+export const revalidate = 600;
+
 export default async function FreeVideoCourses() {
     const themes = await getFreeCourseThemes();
 
