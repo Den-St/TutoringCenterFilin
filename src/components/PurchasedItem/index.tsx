@@ -1,11 +1,6 @@
 import { usePurchasedItem } from "@/hooks/purchasedItem";
 import { Spin } from "antd";
-import ReactPlayer from "react-player";
 import './styles.scss';
-import { useEffect, useState } from "react";
-import { TestT } from "@/types/test";
-import { AnswerT } from "@/types/answer";
-import { TestsComponent } from "./TestsComponent";
 import Link from "next/link";
 
 export const PurchasedItemComponent = () => {
