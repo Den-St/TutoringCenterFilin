@@ -1,6 +1,6 @@
 import { getClassById } from '../../classes/get/getClassById';
 import {  coursesCollection } from '../../collectionsKeys';
-import { query,getDocs,where } from "firebase/firestore"
+import { query,getDocs,where, orderBy } from "firebase/firestore"
 import { CourseT } from '../../../../types/course';
 
 export const getCourses = async () => {
@@ -15,6 +15,6 @@ export const getCourses = async () => {
         courses[i].id = doc.id;
         courses[i].class = classes[i];
     });
-    
+    console.log(courses)
     return courses as CourseT[];
 }

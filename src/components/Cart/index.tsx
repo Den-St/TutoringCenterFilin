@@ -4,7 +4,7 @@ import { DeleteOutlined } from '@ant-design/icons';
 
 export const CartPageComponent = () => {
     const {onDeleteCartItem,loading,cartItems} = useCart();
-
+    console.log(cartItems)
     return <div className="m-10 p-4 border-black border-2 border-solid flex flex-col gap-3">
         {!loading.items 
         ? cartItems.map(cartItem => 

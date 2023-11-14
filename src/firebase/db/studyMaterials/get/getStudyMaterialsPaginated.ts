@@ -7,9 +7,10 @@ import { CourseT } from '../../../../types/course';
 import { db } from '../../../initializeFirebase';
 import { StudyMaterialT } from '../../../../types/studyMaterial';
 
-export const getStudyMaterialsPaginated = async (paginationData:PaginationType,searchData:SearchStudyMaterialsT) => {
+export const getStudyMaterialsPaginated = async (paginationData:PaginationType,searchData:SearchStudyMaterialsT,isFreeItems:boolean) => {
     console.log(paginationData)
     console.log('searchData',searchData);
+    
     const q = searchData.name ? 
                     query(studyMaterialsCollection,orderBy('name','desc'),
                         where('name',">=",(searchData.name.trim().toLowerCase() || '')),   
@@ -22,10 +23,15 @@ export const getStudyMaterialsPaginated = async (paginationData:PaginationType,s
                         where('themes','<=',(searchData.themes.trim().toLowerCase() || '') + "\uf8ff"),
                         // startAt(paginationData.page - 1 * paginationData.pageSize),
                         // limit(paginationData.pageSize),
-                    ) : query(studyMaterialsCollection,orderBy('createdAt','desc'),
+                    ) : isFreeItems ? query(studyMaterialsCollection,orderBy('createdAt','desc'),
+                        where('price','==',0)
                         // startAt(paginationData.page - 1 * paginationData.pageSize),
                         // limit(paginationData.pageSize),
-                        );
+                    ) : query(studyMaterialsCollection,orderBy('price','desc'),
+                        where('price','!=',0)
+                        // startAt(paginationData.page - 1 * paginationData.pageSize),
+                        // limit(paginationData.pageSize),
+                    )
 
 
     const coll = collection(db, collectionsKeys.courses);
@@ -36,16 +42,16 @@ export const getStudyMaterialsPaginated = async (paginationData:PaginationType,s
     let items:any[] = [];
     if(searchData.name?.trim()?.toLowerCase() && searchData.themes?.trim()?.toLowerCase()){
         items = docs.docs.map(doc => {
-        if((doc.data().themes as string).includes(searchData.themes) && doc.data().forTeacher === searchData.forTeacher) {
+        if((doc.data().themes as string).includes(searchData.themes || '') && doc.data().forTeacher === (searchData.forTeacher || false) && (doc.data().price === 0) === isFreeItems) {
             filteredDocs.push(doc);
             return doc.data();
-        }}).filter(data => data);
+        }}).filter(data => data).sort((data,nextData) => data?.createdAt.nanoseconds - nextData?.createdAt.nanoseconds );
     }else{
         items = docs.docs.map(doc => {
-        if(doc.data().forTeacher === searchData.forTeacher) {
+        if(doc.data().forTeacher === searchData.forTeacher && (doc.data().price === 0) === isFreeItems) {
             filteredDocs.push(doc);
             return doc.data();
-        }}).filter(data => data);
+        }}).filter(data => data).sort((data,nextData) => data?.createdAt.nanoseconds - nextData?.createdAt.nanoseconds );
     }
 
     console.log('items',items);

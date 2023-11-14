@@ -36,8 +36,15 @@ export const Header = () => {
                 : <Link key={headerNavRoutes.studyMaterials.route} className="text-white" href={headerNavRoutes.studyMaterials.route}>
                     {headerNavRoutes.studyMaterials.title}
                 </Link>}
-            <AboutUsSectionsNav/>
             <FreeProductsNav/>
+            <AboutUsSectionsNav/>
+            {headerNavRoutes.events.route.includes(pathname)
+                ? <Link className="underline text-white" key={headerNavRoutes.events.route} href={headerNavRoutes.events.route}>
+                    {headerNavRoutes.events.title}
+                </Link>
+                : <Link key={headerNavRoutes.events.route} className="text-white" href={headerNavRoutes.events.route}>
+                    {headerNavRoutes.events.title}
+                </Link>}
         </nav>
         <AuthorizationNav pathname={pathname}/>
     </header>

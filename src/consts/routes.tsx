@@ -12,9 +12,10 @@ export const routes = {
     myProfile:'/my-profile',
     events:'/events',
     freeVideoCourses:`/free-video-courses`,
+    freeStudyMaterials:`/free-study-materials`,
+    freeStudyMaterialsItemPage:(id:string) => `/free-study-materials/${id}`,
     freeVideoCourseItem:(id:string) => `/free-video-courses/${id}`,
     studyMaterials:'/study-materials',
-    studyMaterialItemPage:(id:string) => `/study-materials/${id}`,
 } as const;
 
 export const headerNavRoutes:Record<string,navRoutesType> = {

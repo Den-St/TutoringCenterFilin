@@ -1,0 +1,1 @@
+export const SSG_STUDY_MATERIALS = 2;//number of ssg generated study matgerials pages

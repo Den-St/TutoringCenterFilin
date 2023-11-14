@@ -3,5 +3,5 @@ import { CourseThemeT } from './courseThemes';
 
 export type TestT = {
     name:string,
-    testURl:string,
+    testURL:string,
 }

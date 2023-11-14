@@ -1,12 +1,12 @@
 import { CourseThemeT } from '@/types/courseThemes';
-import { getDocs } from 'firebase/firestore';
+import { getDocs, orderBy } from 'firebase/firestore';
 import { where } from 'firebase/firestore';
 import { courseThemesCollection } from './../../collectionsKeys';
 import { query } from 'firebase/firestore';
 
 export const getFreeCourseThemes = async () => {
     try{
-        const q = query(courseThemesCollection,where('price','==',0));
+        const q = query(courseThemesCollection,orderBy('createdAt','desc'),where('price','==',0),where('isActive','==',true));
 
         const docs = (await getDocs(q)).docs;
         const items = docs.map(doc => doc.data());

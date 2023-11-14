@@ -1,11 +1,11 @@
 import { eventsCollection } from './../../collectionsKeys';
-import { query,getDocs, orderBy,} from "firebase/firestore"
+import { query,getDocs, orderBy, where,} from "firebase/firestore"
 import { EventT } from '@/types/event';
 import { storage } from '@/firebase/initializeFirebase';
 import { getDownloadURL, ref } from 'firebase/storage';
 
 export const getEvents = async () => {
-    const q = query(eventsCollection,orderBy('createdAt','desc'),)
+    const q = query(eventsCollection,orderBy('createdAt','desc'),where('isActive','==',true))
 
     const docs = await getDocs(q);
     const items = docs.docs.map(doc => doc.data());

@@ -4,14 +4,12 @@ import { useBuy } from "@/hooks/useBuy";
 import { Button, Checkbox, Form, Input, Spin, TablePaginationConfig } from "antd";
 import { useForm, useWatch } from "antd/es/form/Form";
 import Link from "next/link";
-import { useEffect } from "react";
-import { BuyStudyMaterialButton } from "../BuyStudyMaterial";
 
 type Props = {
     isFreeItems:boolean
 }
 
-export const StudyMaterialsComponent:React.FC<Props> = ({isFreeItems}) => {
+export const FreeStudyMaterialsComponent:React.FC<Props> = ({isFreeItems}) => {
     const {onSearch,loading,count,studyMaterials,onChangePagination,pagination} = useGetPaginatedStudyMaterials(isFreeItems);
     const paginationConfig:TablePaginationConfig = {
         onChange: onChangePagination,
@@ -49,11 +47,10 @@ export const StudyMaterialsComponent:React.FC<Props> = ({isFreeItems}) => {
         </Form>
         <div className="flex flex-col gap-10">
             {!loading.items ? !!studyMaterials?.length ? studyMaterials?.map(studyMaterial => 
-                <div key={studyMaterial.id}
+                <Link href={routes.freeStudyMaterialsItemPage(studyMaterial.id)} key={studyMaterial.id}
                       className="flex w-full justify-between border-2 border-black border-solid items-center p-5">
                         <p>{studyMaterial.name}</p>
-                        <BuyStudyMaterialButton studyMaterial={studyMaterial}/>
-                </div>
+                </Link>
             ) : <p>Нема посібників</p> : <Spin/>}
         </div>
     </div>

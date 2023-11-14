@@ -1,7 +1,8 @@
 import { CourseThemeT } from './courseThemes';
+import { StudyMaterialT } from './studyMaterial';
 export type CartItemT = {
     id:string,
-    product:CourseThemeT,
+    product:CourseThemeT | StudyMaterialT,
     user:string
     type:CartItemTypeT
 }
@@ -12,4 +13,4 @@ export type CreateCartItemT = {
     user:string
 }
 
-export type CartItemTypeT = 'test' | 'theme';
+export type CartItemTypeT =  'theme' | 'studyMaterial';

@@ -8,6 +8,6 @@ export default async function FreeVideoCourses() {
     const themes = await getFreeCourseThemes();
 
     return <div className="flex flex-col gap-10">
-        {themes?.map(theme => <Link href={routes.freeVideoCourseItem(theme.id)} >{theme.name}</Link>)}
+        {themes?.map(theme => <Link className="p-5 flex justify-between items-center border-black border-2" href={routes.freeVideoCourseItem(theme.id)} >{theme.name}</Link>)}
     </div>
 }

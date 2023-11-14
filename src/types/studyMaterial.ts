@@ -11,9 +11,9 @@ export type StudyMaterialT = {
     name:string;
     description:string
     createdAt:Timestamp
-    videoLessons:Record<number,VideoLessonT>[]
-    tests:Record<number,TestT>[]
-    documents:Record<number,DocumentT>[]
+    videoLessons:VideoLessonT[]
+    tests:TestT[]
+    documents:DocumentT[]
     price:number,
     themes:string
     subscriptionDuration:number

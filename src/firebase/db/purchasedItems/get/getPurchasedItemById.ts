@@ -7,6 +7,9 @@ import { getTestsByCourseThemeId } from '../../tests/get/getTestsByCourseThemeId
 import { CourseThemeT } from '@/types/courseThemes';
 import { TestT } from '@/types/test';
 import { VideoLessonT } from '@/types/videoLesson';
+import { getRealItemByProducIdFunctions } from '@/consts/getRealItemByProducIdFunctions';
+import { CartItemTypeT } from '@/types/cartItem';
+import { StudyMaterialT } from '@/types/studyMaterial';
 
 export const getPurchasedItemById = async (id:string,userId:string) => {
     try{
@@ -15,9 +18,9 @@ export const getPurchasedItemById = async (id:string,userId:string) => {
         if(item?.user !== userId) return; 
         if(!item) return;
 
-        const courseTheme = await getCourseThemeById(item.product);
+        const product = await getRealItemByProducIdFunctions[item.type as CartItemTypeT](item.product);
 
-        return courseTheme as CourseThemeT;
+        return {product,type:item.type as CartItemTypeT};
     }catch(err){
         console.error(err);
     }

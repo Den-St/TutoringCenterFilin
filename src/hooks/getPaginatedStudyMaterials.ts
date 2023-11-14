@@ -1,3 +1,5 @@
+import { routes } from '@/consts/routes';
+import { useParams, usePathname } from 'next/navigation';
 import { useEffect } from 'react';
 import { PaginationType } from '@/types/pagination';
 import { StudyMaterialT } from '@/types/studyMaterial';
@@ -11,15 +13,15 @@ export type SearchStudyMaterialsT = {
     forTeacher:boolean,
 }
 
-export const useGetPaginatedStudyMaterials = () => {
+export const useGetPaginatedStudyMaterials = (isFreeItems:boolean) => {
     const [studyMaterials,setStudyMaterials] = useState<StudyMaterialT[]>();
     const [count,setCount] = useState<number>();
     const [loading,setLoading] = useState<{items:boolean}>({items:false});
     const [pagination,setPagination] = useState<PaginationType>({page:1,pageSize:5});
-    
+
     const fetch = async (data:SearchStudyMaterialsT) => {
         setLoading(prev => ({...prev,items:true}));
-        const res = await getStudyMaterialsPaginated(pagination,data);
+        const res = await getStudyMaterialsPaginated(pagination,data,isFreeItems);
 
         setStudyMaterials(res.items);
         setCount(res.count);
