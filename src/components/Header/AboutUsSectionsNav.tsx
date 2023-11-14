@@ -4,8 +4,7 @@ import { Dropdown } from "antd";
 export const AboutUsSectionsNav = () => {
     const {menuItems,loading} = useAboutUsSectionsNav();
     
-    if(loading) return;
     return <>
-        <Dropdown placement="bottom" menu={{items:menuItems}}><p className="text-white">Про нас</p></Dropdown>
+        <Dropdown placement="bottom" menu={{items:!loading ? menuItems : []}}><p className="text-white">Про нас</p></Dropdown>
     </>
 }

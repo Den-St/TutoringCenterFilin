@@ -10,7 +10,7 @@ import { FreeProductsNav } from "./FreeProductsNav"
 export const Header = () => {
     const pathname = usePathname();
 
-    return <header className="w-full bg-blue-950 p-5 flex justify-around items-center">
+    return <header className="w-full bg-blue-950 p-5 flex justify-around items-center h-20">
         <nav aria-label="content navigation" className="flex gap-3">
             {/* {Object.keys(headerNavRoutes).map(navKey => 
                 pathname === headerNavRoutes[navKey].route

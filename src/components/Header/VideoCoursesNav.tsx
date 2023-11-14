@@ -5,8 +5,7 @@ import { Dropdown } from "antd"
 export const VideoCoursesNav = () => {
     const {menuItems,loading} = useVideoCoursesNav();
     
-    if(loading) return;
     return <>
-        <Dropdown menu={{items:menuItems}}><p className="text-white">Відеокурси</p></Dropdown>
+        <Dropdown menu={{items:!loading ? menuItems : []}}><p className="text-white">Відеокурси</p></Dropdown>
     </>
 }
