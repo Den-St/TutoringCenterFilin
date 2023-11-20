@@ -31,7 +31,7 @@ export const EditTeacherInfo:React.FC<Props> = ({isOnEditing,onChangeTeacherInfo
         form.setFieldValue('photo',newPhoto);
     }
     console.log(photo)
-
+    
     return <div className={'flex flex-col gap-5 w-full'}>
         <Button className="w-40" onClick={onEditingToggle}>{isOnEditing ? 'Відмінити змінення' : 'Змінити інформацію'}</Button>
         {isOnEditing && 

@@ -19,7 +19,7 @@ export const MyProfilePageComponent = () => {
             <p>{user.displayName || (user.name + ' ' + user.surname)}</p>
             <p>{user.email}</p>
         </div>
-        <EditTeacherInfo onChangeChosenSubjects={onChangeChosenSubjects}  isOnEditing={isOnEditing} onChangeTeacherInfo={onChangeTeacherInfo} onEditingToggle={onEditingToggle}/>
+        {user.isTeacher && <EditTeacherInfo onChangeChosenSubjects={onChangeChosenSubjects}  isOnEditing={isOnEditing} onChangeTeacherInfo={onChangeTeacherInfo} onEditingToggle={onEditingToggle}/>}
         <Tabs items={items}/>
     </div>
 }
