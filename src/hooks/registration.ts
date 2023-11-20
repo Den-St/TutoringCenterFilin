@@ -41,7 +41,6 @@ export const useRegistration = () => {
                                 aboutMe:'',
                                 contacts:[],
                                 level:'',
-                                photo:photoURL || '',
                                 subjects:[]
                             }
                         });
@@ -72,7 +71,6 @@ export const useRegistration = () => {
                                 aboutMe:'',
                                 contacts:[],
                                 level:'',
-                                photo:photoURL || '',
                                 subjects:[]
                             }
                         });
