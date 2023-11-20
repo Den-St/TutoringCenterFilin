@@ -2,7 +2,7 @@ import { navRoutesType } from "@/types/routes";
 
 export const routes = {
     home:'/',
-    videoCourses:(id:string) => `/video-courses/${id}`,
+    videoCourseThemesByCourseId:(id:string) => `/video-course-themes/${id}`,
     // tests:'/tests',
     aboutUs:(id:string) => `/about-us/${id}`,
     registration:'/registration',
@@ -16,6 +16,12 @@ export const routes = {
     freeStudyMaterialsItemPage:(id:string) => `/free-study-materials/${id}`,
     freeVideoCourseItem:(id:string) => `/free-video-courses/${id}`,
     studyMaterials:'/study-materials',
+    tests:(id:string) => `/tests/${id}`,
+    freeTests:'/free-tests',
+    freeTestItem:(id:string) => `/free-tests/${id}`,
+    teachers:`/teachers`,
+    teacher:(id:string) => `/teachers/${id}`,
+    afterPayment:(id:string) => `/after-payment?order_id=${id}`
 } as const;
 
 export const headerNavRoutes:Record<string,navRoutesType> = {
@@ -30,6 +36,10 @@ export const headerNavRoutes:Record<string,navRoutesType> = {
     studyMaterials:{
         title:'Посібники',
         route:routes.studyMaterials,
+    },
+    teachers:{
+        title:'Наші вчителі',
+        route:routes.teachers,
     },
     // videoCourses:{
     //     title:'Відеокурси',

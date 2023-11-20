@@ -8,31 +8,43 @@ import { getCourseById } from '../../courses/get/getCourseById';
 import { CourseThemeT } from '../../../../types/courseThemes';
 import { getCourseThemeById } from '../../courseThemes/get/getCourseThemeById';
 import { TestT } from '../../../../types/test';
+import { TestProductT } from '@/types/testProduct';
 
-export const getTestsPaginated = async (paginationData:PaginationType,description?:string) => {
-    const q = description ? query(testsCollection,orderBy('description','desc'),
-                    where('description',">=",description || ''),   
-                    where('description','<=',(description || '') + "\uf8ff"),
+export const getPaginatedFreeTests = async (paginationData:PaginationType,searchData:{class?:string,subject?:string}) => {
+    const q = searchData.subject ? 
+                    searchData.class ? query(testsCollection,orderBy('createdAt','desc'),
+                    where('subject',"==",searchData.subject),
+                    where('class','==',searchData.class),
                     // startAt(paginationData.page - 1 * paginationData.pageSize),
                     // limit(paginationData.pageSize),
                     )
                    : query(testsCollection,orderBy('createdAt','desc'),
+                    where('subject',"==",searchData.subject),
                     // startAt(paginationData.page - 1 * paginationData.pageSize),
                     // limit(paginationData.pageSize),
-                   );
+                   ) : searchData.class ? query(testsCollection,orderBy('createdAt','desc'),
+                   where('class','==',searchData.class),
+                   // startAt(paginationData.page - 1 * paginationData.pageSize),
+                   // limit(paginationData.pageSize),
+                  ) : query(testsCollection,orderBy('createdAt','desc'),
+                  // startAt(paginationData.page - 1 * paginationData.pageSize),
+                  // limit(paginationData.pageSize),
+                 );
     
     const coll = collection(db, collectionsKeys.tests);
     const countSnapshot = await getCountFromServer(coll);
     const docs = await getDocs(q);  
-    const tests = docs.docs.map(doc => doc.data());
-    const themesQ = tests.map(async test => await getCourseThemeById(test.courseTheme));
-    const themes = await Promise.all(themesQ);
+    const filteredDocs:any[] = [];
+    const items = docs.docs.map(doc => {if(doc.data().price === 0){
+        filteredDocs.push(doc);
+        return doc.data();
+    }}).filter(item => !!item);
+    
 
-
-    docs.docs.forEach((doc,i) => {
-        tests[i].id = doc.id;
-        tests[i].courseTheme = themes[i];
+    items.forEach((item,i) => {
+        if(!item) return;
+        item.id = filteredDocs[i].id;
     });
     
-    return {tests:tests as TestT[],count:countSnapshot.data().count};
+    return {tests:items as TestProductT[],count:countSnapshot.data().count};
 }

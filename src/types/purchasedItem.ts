@@ -1,12 +1,21 @@
+import { TestProductT } from '@/types/testProduct';
 import { CartItemTypeT } from '@/types/cartItem';
 import { UserT } from './user';
 import { CourseThemeT } from './courseThemes';
 import { Timestamp } from 'firebase/firestore';
+import { StudyMaterialT } from './studyMaterial';
 
-export type PurchasedItemsT = {
+export type PurchasedItemT = {
     id:string
     createdAt:Timestamp
-    product:CourseThemeT
+    product:CourseThemeT | TestProductT | StudyMaterialT
     user:UserT
-    theme:CartItemTypeT
+    type:CartItemTypeT
+}
+
+export type CreatePurchasedItemT = {
+    user:string
+    product:string
+    type:CartItemTypeT
+    createdAt:Date
 }

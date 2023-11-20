@@ -4,7 +4,7 @@ import { classesCollection } from '../../collectionsKeys';
 
 export const getClassesByNumber = async (number:number) => {
     try{
-        const q = query(classesCollection,where('number','==',number));
+        const q = query(classesCollection,where('isActive','==',true));
         const docs = await getDocs(q);
         const classesDocs = docs.docs;
         const classes = classesDocs.map(classDoc => classDoc.data());

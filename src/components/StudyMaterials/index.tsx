@@ -6,6 +6,7 @@ import { useForm, useWatch } from "antd/es/form/Form";
 import Link from "next/link";
 import { useEffect } from "react";
 import { BuyStudyMaterialButton } from "../BuyStudyMaterial";
+import { BuyProductButton } from "../BuyVideoCourseButton";
 
 type Props = {
     isFreeItems:boolean
@@ -52,7 +53,7 @@ export const StudyMaterialsComponent:React.FC<Props> = ({isFreeItems}) => {
                 <div key={studyMaterial.id}
                       className="flex w-full justify-between border-2 border-black border-solid items-center p-5">
                         <p>{studyMaterial.name}</p>
-                        <BuyStudyMaterialButton studyMaterial={studyMaterial}/>
+                        <BuyProductButton productType={'studyMaterial'} product={studyMaterial}/>
                 </div>
             ) : <p>Нема посібників</p> : <Spin/>}
         </div>

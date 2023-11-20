@@ -21,6 +21,14 @@ export const FreeProductsNav = () => {
           ),
           key: '1',
         },
+        {
+          label: (
+            <Link href={routes.freeTests}>
+               Тести
+            </Link>
+          ),
+          key: '2',
+        },
       ];
     return <>
         <Dropdown menu={{items}}><p className="text-white">Подарунки</p></Dropdown>

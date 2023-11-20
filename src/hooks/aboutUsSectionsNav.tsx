@@ -1,7 +1,6 @@
 import type { MenuProps } from 'antd';
 import { CourseT } from '../types/course';
 import { useEffect } from 'react';
-import { getVideoCoursesNav } from '@/firebase/db/videoLessons/get/getVideoCoursesNav';
 import { useState } from 'react';
 import Link from 'next/link';
 import { routes } from '@/consts/routes';

@@ -1,7 +1,7 @@
 import type { MenuProps } from 'antd';
 import { CourseT } from '../types/course';
 import { useEffect } from 'react';
-import { getVideoCoursesNav } from '@/firebase/db/videoLessons/get/getVideoCoursesNav';
+import { getCoursesNav } from '@/firebase/db/videoLessons/get/getVideoCoursesNav';
 import { useState } from 'react';
 import Link from 'next/link';
 import { routes } from '@/consts/routes';
@@ -11,15 +11,15 @@ export const useVideoCoursesNav = () => {
 
     const fetch = async () => {   
         setLoading(true);
-        const res = await getVideoCoursesNav();
+        const res = await getCoursesNav();
         // setVideoCourses(res);
         setMenuItems(Object.keys(res).map(key => ({
             key,
             type:'group',
             label:key + ' клас',
-            children: res[+key].map(videoCourse => ({
-                key:key + videoCourse.id,
-                label:<Link href={routes.videoCourses(videoCourse.id)}>{videoCourse.shortName}</Link>
+            children: res[+key].map(course => ({
+                key:key + course.id,
+                label:<Link href={routes.videoCourseThemesByCourseId(course.id)}>{course.shortName}</Link>
             }))
         })))
 

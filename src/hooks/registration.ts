@@ -32,10 +32,19 @@ export const useRegistration = () => {
                               email,
                               displayName: displayName,
                               photoURL,
-                              createdAt:creationTime,
+                              createdAt:new Date(),
                               name:data.name,
-                              surname:data.surname
-                            });
+                              surname:data.surname,
+                              patronymic:data.patronymic,
+                              isTeacher:false,
+                              teacherInfo:{
+                                aboutMe:'',
+                                contacts:[],
+                                level:'',
+                                photo:photoURL || '',
+                                subjects:[]
+                            }
+                        });
             setSuccess(true);
         }catch(err){
             if(AuthErrorCodes.EMAIL_EXISTS === JSON.parse(JSON.stringify(err)).code){
@@ -51,11 +60,22 @@ export const useRegistration = () => {
             const {displayName, email, photoURL} = googleAuthProvider.currentUser;
             const {creationTime} = googleAuthProvider.currentUser.metadata;
             await createUser({
-                              email,
-                              displayName,
-                              photoURL,
-                              createdAt:creationTime
-                            });
+                            email,
+                            displayName: displayName,
+                            photoURL,
+                            createdAt:new Date(),
+                            name:'',
+                            surname:'',
+                            patronymic:'',
+                            isTeacher:false,
+                            teacherInfo:{
+                                aboutMe:'',
+                                contacts:[],
+                                level:'',
+                                photo:photoURL || '',
+                                subjects:[]
+                            }
+                        });
             setSuccess(true);
         }catch(err){
             console.error(err);

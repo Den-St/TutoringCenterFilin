@@ -6,6 +6,7 @@ import { AuthorizationNav } from "./AuthorizationNav"
 import { VideoCoursesNav } from "./VideoCoursesNav"
 import { AboutUsSectionsNav } from "./AboutUsSectionsNav"
 import { FreeProductsNav } from "./FreeProductsNav"
+import { TestsNav } from "./TestsNav"
 
 export const Header = () => {
     const pathname = usePathname();
@@ -21,7 +22,7 @@ export const Header = () => {
                     {headerNavRoutes[navKey].title}
                 </Link>
             )} */}
-             {headerNavRoutes.home.route.includes(pathname)
+             {headerNavRoutes.home.route === pathname
                 ? <Link className="underline text-white" key={headerNavRoutes.home.route} href={headerNavRoutes.home.route}>
                     {headerNavRoutes.home.title}
                 </Link>
@@ -29,21 +30,29 @@ export const Header = () => {
                     {headerNavRoutes.home.title}
                 </Link>}
             <VideoCoursesNav/>
-            {headerNavRoutes.studyMaterials.route.includes(pathname)
+            {headerNavRoutes.studyMaterials.route === pathname
                 ? <Link className="underline text-white" key={headerNavRoutes.studyMaterials.route} href={headerNavRoutes.studyMaterials.route}>
                     {headerNavRoutes.studyMaterials.title}
                 </Link>
                 : <Link key={headerNavRoutes.studyMaterials.route} className="text-white" href={headerNavRoutes.studyMaterials.route}>
                     {headerNavRoutes.studyMaterials.title}
                 </Link>}
+            <TestsNav/>
             <FreeProductsNav/>
             <AboutUsSectionsNav/>
-            {headerNavRoutes.events.route.includes(pathname)
+            {headerNavRoutes.events.route === pathname
                 ? <Link className="underline text-white" key={headerNavRoutes.events.route} href={headerNavRoutes.events.route}>
                     {headerNavRoutes.events.title}
                 </Link>
                 : <Link key={headerNavRoutes.events.route} className="text-white" href={headerNavRoutes.events.route}>
                     {headerNavRoutes.events.title}
+                </Link>}
+            {headerNavRoutes.teachers.route === pathname
+                ? <Link className="underline text-white" key={headerNavRoutes.teachers.route} href={headerNavRoutes.teachers.route}>
+                    {headerNavRoutes.teachers.title}
+                </Link>
+                : <Link key={headerNavRoutes.teachers.route} className="text-white" href={headerNavRoutes.teachers.route}>
+                    {headerNavRoutes.teachers.title}
                 </Link>}
         </nav>
         <AuthorizationNav pathname={pathname}/>

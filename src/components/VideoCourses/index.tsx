@@ -1,7 +1,7 @@
 import { CourseT } from "@/types/course"
 import { CourseThemeT } from "@/types/courseThemes"
 import React from "react"
-import { BuyVideoCourseButton } from "./BuyVideoCourseButton"
+import { BuyProductButton } from "../BuyVideoCourseButton"
 
 type Props = {
     course?:CourseT,
@@ -15,7 +15,7 @@ export const VideoCourseItemComponent:React.FC<Props> = ({course,themes}) => {
         {themes?.map(theme => 
         <p key={theme.id} className="w-full border-4 border-solid border-black p-4 flex justify-between items-center">
             {theme.name}
-            <BuyVideoCourseButton courseTheme={{...theme,createdAt:null}}/>
+            <BuyProductButton productType={'theme'} product={{...theme,createdAt:null}}/>
         </p>)}
     </div>
 }

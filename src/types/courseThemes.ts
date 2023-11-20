@@ -14,7 +14,7 @@ type ThemeTestT = {
 }
 type ThemeStudyMaterialT = {
     name:string,
-    studyMaterialURL:string
+    documentURL:string
 }
 export type CourseThemeT = {
     id:string
@@ -25,7 +25,7 @@ export type CourseThemeT = {
     isActive:boolean,
     videoLessons:videoLessonT[],
     tests:ThemeTestT[],
-    studyMaterials:ThemeStudyMaterialT[]
+    documents:ThemeStudyMaterialT[]
     createdAt:Timestamp | null
 }
 

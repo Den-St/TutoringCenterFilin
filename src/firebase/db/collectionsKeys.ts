@@ -12,6 +12,9 @@ export enum collectionsKeys {
     purchasedItems = "purchasedItems",
     events = 'events',
     studyMaterials = "studyMaterials",
+    subjects = "subjects",
+    teacherReviews = "teacherReviews",
+    orders = "orders",
 };
 
 export const classesCollection = collection(db,collectionsKeys.classes);
@@ -24,3 +27,6 @@ export const cartItemsCollection = collection(db,collectionsKeys.cartItems);
 export const purchasedItemsCollection = collection(db,collectionsKeys.purchasedItems);
 export const eventsCollection = collection(db,collectionsKeys.events);
 export const studyMaterialsCollection = collection(db,collectionsKeys.studyMaterials);
+export const subjectsCollection = collection(db,collectionsKeys.subjects);
+export const teacherReviewsCollection = collection(db,collectionsKeys.teacherReviews);
+export const ordersCollection = collection(db,collectionsKeys.orders);

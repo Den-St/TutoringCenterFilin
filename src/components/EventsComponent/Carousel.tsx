@@ -1,4 +1,5 @@
-import { Carousel, Image } from "antd"
+import { Carousel,  } from "antd"
+import Image from 'next/image';
 import "./carouselStyles.scss";
 type Props = {
     photos:string[]
@@ -8,8 +9,8 @@ export const CarouselComponent:React.FC<Props> = ({photos}) => {
     return <div>
         {!!photos?.length && <Carousel style={{width:'700px'}} >
         {photos?.map((photo:string) => <div className="" key={photo}>
-            <Image src={photo} preview={{src:photo}}/>
-        </div>
+            <Image sizes="(max-width: 768px) 100vw, 33vw" className="carouselImage" src={photo}  width={300} height={300} alt={'Фото з події'}/>
+        </div> 
         )}
         </Carousel>}
     </div>

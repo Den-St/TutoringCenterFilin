@@ -1,0 +1,35 @@
+.photosInputContainer{
+    position:relative;
+    width:60px;
+    height:33px;
+    margin-bottom:20px;
+    background:#1677ff;
+    border-radius:5px;
+    margin-top:10px;
+    .anticon{
+        position:absolute;
+        padding:5px;
+        font-size:20px;
+        /* width:50px; */
+        background:#1677ff;
+        color:white;
+        left: 15px;
+    }
+    p{
+        position:absolute;
+        margin:0;
+        padding:5px;
+        font-size:20px;
+        width:50px;
+        background:#1677ff;
+        color:white;
+        border-radius:5px;
+        text-align:center;
+    }
+}
+
+.photosInput{
+    opacity:0;
+    width:60px;
+    height:33px;
+}

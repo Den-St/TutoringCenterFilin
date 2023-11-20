@@ -21,6 +21,7 @@ export const Registration = () => {
             <input {...register('email')} placeholder="email" type="email" className="border-2 border-black border-solid"/>
             <input {...register('name')} placeholder="name" className="border-2 border-black border-solid"/>
             <input {...register('surname')} placeholder="second name" className="border-2 border-black border-solid"/>
+            <input {...register('patronymic')} placeholder="patronymic" className="border-2 border-black border-solid"/>
             <input {...register('password',{minLength:6})} type={'password'} placeholder="password" className="border-2 border-black border-solid"/>
             <input className={'bg-slate-300 p-2 cursor-pointer'} type={'submit'} value="SUBMIT"/>
         </form>

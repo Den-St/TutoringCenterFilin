@@ -8,7 +8,10 @@ const initialState:UserT = {
     photoURL:'',   
     id:'',
     name:'',
-    surname:''
+    surname:'',
+    patronymic:'',
+    isTeacher:false,
+    teacherInfo:undefined
 }
 
 const userSlice = createSlice({
@@ -23,15 +26,21 @@ const userSlice = createSlice({
             state.id = payload?.payload.id; 
             state.name = payload?.payload.name;
             state.surname = payload?.payload.surname;
+            state.isTeacher = payload?.payload.isTeacher
+            state.teacherInfo = payload?.payload.teacherInfo
+            state.patronymic = payload?.payload.patronymic
         },
         clearAuthedUser(state){
             state.email = '';
-            state.createdAt = '';
+            state.createdAt = null;
             state.displayName = '';
             state.photoURL = '';
             state.id = ''; 
             state.name = '';
             state.surname = '';
+            state.isTeacher = false;
+            state.teacherInfo = undefined;
+            state.patronymic = '';
         },
     }
 });

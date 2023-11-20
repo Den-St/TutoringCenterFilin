@@ -26,8 +26,8 @@ export const FreeVideoCourseComponent:React.FC<Props> = ({theme}) => {
             </div>)}
         </div>
         <div className="flex flex-col gap-10">
-             {theme?.studyMaterials.map((studyMaterial,i) => <div className="flex gap-5" key={studyMaterial.studyMaterialURL + i}>
-                <div>{i + 1 + `)`}<Link target={'_blank'} href={studyMaterial?.studyMaterialURL}>{studyMaterial.name}</Link></div>
+             {theme?.documents.map((document,i) => <div className="flex gap-5" key={document.documentURL + i}>
+                <div>{i + 1 + `)`}<Link target={'_blank'} href={document?.documentURL}>{document.name}</Link></div>
             </div>)}
         </div>
     </div>

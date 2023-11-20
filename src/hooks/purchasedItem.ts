@@ -1,3 +1,4 @@
+import { TestProductT } from '@/types/testProduct';
 import { CartItemT, CartItemTypeT } from './../types/cartItem';
 import { routes } from '@/consts/routes';
 import { useAppSelector } from './redux';
@@ -5,7 +6,7 @@ import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 import { VideoLessonT } from './../types/videoLesson';
 import { useParams, useSearchParams } from 'next/navigation';
-import { PurchasedItemsT } from '@/types/purchasedItem';
+import { PurchasedItemT } from '@/types/purchasedItem';
 import { TestT } from '@/types/test';
 import { useState } from 'react';
 import { getPurchasedItemById } from '@/firebase/db/purchasedItems/get/getPurchasedItemById';
@@ -17,7 +18,7 @@ export const usePurchasedItem = () => {
     const userId = useAppSelector(state => state.user.id);
     const router = useRouter();
     const [loading,setLoading] = useState<{item:boolean}>({item:false});
-    const [item,setItem] = useState<CourseThemeT | StudyMaterialT>();
+    const [item,setItem] = useState<CourseThemeT | StudyMaterialT | TestProductT>();
     const [type,setType] = useState<CartItemTypeT>();
 
     const fetchItem = async () => {

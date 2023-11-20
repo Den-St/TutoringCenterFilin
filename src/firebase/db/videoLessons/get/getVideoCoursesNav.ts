@@ -2,7 +2,8 @@ import { CourseT } from './../../../../types/course';
 import { getDocs, query, where } from 'firebase/firestore';
 import { classesCollection, videoLessonsCollection, coursesCollection } from './../../collectionsKeys';
 import { VideoLessonT } from '@/types/videoLesson';
-export const getVideoCoursesNav = async () => {
+
+export const getCoursesNav = async () => {
     const videoLessonsQ = query(coursesCollection,where('isActive',"==",true),);
     const classesQ = query(classesCollection,where('isActive',"==",true),);
     const [videoLessonsDocs,classesDocs] = await Promise.all([(await getDocs(videoLessonsQ)).docs,(await (getDocs(classesQ))).docs]);

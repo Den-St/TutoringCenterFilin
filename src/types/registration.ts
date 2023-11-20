@@ -3,4 +3,5 @@ export type RegistrationInterface = {
     name:string,
     surname:string,
     password:string,
+    patronymic:string
 }
