@@ -1,3 +1,4 @@
+import { UserT } from '@/types/user';
 import { getDocs, query, where } from "firebase/firestore";
 import { usersCollection } from "../users.collection";
 
@@ -9,7 +10,7 @@ export const getUserByEmail = async (email?:string | null) => {
         const user = userDoc.data();
         user.id = userDoc.id;
         
-        return user;
+        return user as UserT;
     }catch(err){
         console.error(err);
     }

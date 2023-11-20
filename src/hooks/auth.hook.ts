@@ -21,15 +21,14 @@ export const useAuth = () => {
             }
 
             const user = await getUserByEmail(googleAuthProvider.currentUser?.email);
-
-            const userDataGoogle:UserT = {
-                email:googleAuthProvider.currentUser?.email,
-                displayName:googleAuthProvider.currentUser?.displayName,
-                createdAt:googleAuthProvider.currentUser?.metadata.creationTime,
-                photoURL:googleAuthProvider.currentUser?.photoURL,
-            }
+            if(!user) return;
+            // const userDataGoogle:UserT = {
+                
+            //     ...user
+            // }
             dispatch(setUser({
-                ...userDataGoogle,...user
+                // ...userDataGoogle,
+                ...user
             }));
         });
         setLoading(false);
