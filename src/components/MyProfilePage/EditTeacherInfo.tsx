@@ -26,11 +26,8 @@ export const EditTeacherInfo:React.FC<Props> = ({isOnEditing,onChangeTeacherInfo
     const onChangeImages = (e:React.ChangeEvent<HTMLInputElement>) => {
         if (!e.target.files?.length) return;
         const newPhoto = e.target.files[e.target.files.length - 1];
-        console.log('1',newPhoto)
-        console.log('2',e.target.files)
         form.setFieldValue('photo',newPhoto);
     }
-    console.log(photo)
     
     return <div className={'flex flex-col gap-5 w-full'}>
         <Button className="w-40" onClick={onEditingToggle}>{isOnEditing ? 'Відмінити змінення' : 'Змінити інформацію'}</Button>

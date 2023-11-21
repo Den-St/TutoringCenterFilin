@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default async function Teachers() {
     const teachers = await getTeachers();
-
+    
     return <div className="flex flex-col">
         {teachers.map(teacher => 
             <Link href={routes.teacher(teacher.id)} key={teacher.id} className="p-5 border-black border-2">

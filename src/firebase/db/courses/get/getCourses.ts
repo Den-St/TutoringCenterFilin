@@ -15,6 +15,6 @@ export const getCourses = async () => {
         courses[i].id = doc.id;
         courses[i].class = classes[i];
     });
-    console.log(courses)
+
     return courses as CourseT[];
 }

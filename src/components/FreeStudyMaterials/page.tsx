@@ -21,7 +21,6 @@ export const FreeStudyMaterialsComponent:React.FC<Props> = ({isFreeItems}) => {
         // pageSizeOptions:[5,10,20,50],
         showPrevNextJumpers:true
     }
-    console.log(studyMaterials);
 
     return <div className="flex flex-col gap-10 p-10">
         <Form onFinish={onSearch} style={{width:'400px'}} >

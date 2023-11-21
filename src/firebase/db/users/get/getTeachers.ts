@@ -13,7 +13,6 @@ export const getTeachers = async () => {
 
     const docs = (await getDocs(q)).docs;
     const items = docs.map(doc => doc.data());
-
     const subjectsArraysQ = items.map(item => item.teacherInfo.subjects.map(async (subject:string) => await getSubjectById(subject)));
     const subjectsArrays = await Promise.all(subjectsArraysQ.map(async arr => await Promise.all(arr)));
     const photosQ = items.map(async item => item.photoURL ? await getDownloadURL(ref(storage,item.photoURL)) : '');

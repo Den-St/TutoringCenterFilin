@@ -14,7 +14,8 @@ const nextConfig = {
         'FIREBASE_MEASUREMENT_ID':'G-M4QWBFVSH5',
         'LIQPAY_PUBLIC_KEY':'sandbox_i80004363846',
         'LIQPAY_PRIVATE_KEY':'sandbox_Wpi94NBsugfTYiRdTFJbkvlzhXPVMK35WBb5Ku9w',
-        'AFTER_PAYMENT_PAGE':'https://den-st.github.io/TutoringCenterFilin/after-payment'
+        'AFTER_PAYMENT_PAGE':'https://den-st.github.io/TutoringCenterFilin/after-payment',
+        'AFTER_PAYMENT_PAGE_LOCAL':'http://localhost:3000/TutoringCenterFilin/after-payment',
     }
 }
 

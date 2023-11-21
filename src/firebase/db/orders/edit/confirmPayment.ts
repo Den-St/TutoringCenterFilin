@@ -8,12 +8,11 @@ import { createPurchasedItem } from '../../purchasedItems/create/createPurchased
 export const confirmPayment = async (orderId:string) => {
     const document = doc(db,collectionsKeys.orders,orderId);
     const item = (await getDoc(document)).data();
-    console.log('ggg',item)
+    console.log('ggg',item);
     if(item?.status !== 'pending') return;
     await setDoc(document,{...item,status:'success'});
     
     const queries:any[] = [];
     item.products.forEach((product:OrderProductT) => queries.push(async () => await createPurchasedItem({createdAt:new Date(),product:product.product,type:product.type,user:item.user})));
     await Promise.all(queries.map(async q => await q()));
-    
 }

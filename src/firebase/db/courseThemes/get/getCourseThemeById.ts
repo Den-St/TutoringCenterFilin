@@ -9,7 +9,7 @@ export const getCourseThemeById = async (id:string) => {
     try{
         const document = doc(db,collectionsKeys.courseThemes,id);
         const courseTheme = (await getDoc(document)).data();
-        console.log('gg',courseTheme,id);
+
         if(!courseTheme) return;
         const documentsURLSQ = courseTheme?.documents.map(async (doc:DocumentT) => await getDownloadURL(ref(storage,doc.documentURL)));
         const documentsURLS = await Promise.all(documentsURLSQ);

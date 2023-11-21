@@ -23,7 +23,6 @@ export const getCartItemsByUserId = async (userId:string) => {
             item.product = products[i];
         });
         
-        console.log('ggg',cartItems);
         return cartItems as CartItemT[];
     }catch(err){
         console.error(err);

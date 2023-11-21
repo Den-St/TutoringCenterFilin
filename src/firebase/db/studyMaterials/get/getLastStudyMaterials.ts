@@ -16,7 +16,6 @@ export const getLastFreeStudyMaterials = async (limitNumber:number) => {
     docs.docs.forEach((doc,i) => {
         items[i].id = doc.id;
     });
-    console.log(items.map(i => i.id));
     
     return items.sort((item,nextItem) => item.createdAt.nanoseconds - nextItem.createdAt.nanoseconds) as StudyMaterialT[];
 }

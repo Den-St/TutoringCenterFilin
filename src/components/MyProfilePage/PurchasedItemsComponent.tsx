@@ -7,7 +7,6 @@ type Props = {
 }
 
 export const PurchasedItemsComponent:React.FC<Props> = ({items}) => {
-    console.log('items',items)
     return <div className="flex flex-col gap-4">
         {items.map(item => 
             <div key={item.id} className="flex justify-between border-grey border-2 border-solid p-4">

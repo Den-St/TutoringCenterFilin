@@ -66,7 +66,7 @@ export const useCart = () => {
                             "Продукти:" + '\n' +
                             cartItems.map(cartItem => cartItem.product.name + '' + cartItem.product.id + '\n')
                             'сума платежу = ' + amount + '\n';
-        const result_url = process.env.AFTER_PAYMENT_PAGE + `?order_id=${order_id}`;
+        const result_url = process.env.AFTER_PAYMENT_PAGE_LOCAL + `?order_id=${order_id}`;
 
         const json_string = {public_key,private_key,version,action,amount,currency,description,order_id,result_url};
         const data = base64_encode(json_string);

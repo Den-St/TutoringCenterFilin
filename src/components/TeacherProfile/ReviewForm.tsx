@@ -7,7 +7,7 @@ export const ReviewForm = () => {
     const {onCreateReview,loading} = useCreateReview();
     const isAuthed = !!useAppSelector(state => state.user.id);
     if(!isAuthed) return;
-    console.log('fsd')
+
     return <Form onFinish={onCreateReview}>
         <Form.Item
         name={'text'}>

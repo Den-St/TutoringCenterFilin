@@ -11,7 +11,6 @@ export const getCourseThemesByCourseId = async (courseId:string) => {
         const themes = courseThemesDocs.map(courseTheme => courseTheme.data());
        
         themes.forEach((theme,i) => theme.id = courseThemesDocs[i]?.id);
-        // console.log(themes);
         return themes as CourseThemeT[];
     }catch(err){
         console.error(err);
