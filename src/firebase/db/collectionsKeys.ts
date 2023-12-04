@@ -15,6 +15,7 @@ export enum collectionsKeys {
     subjects = "subjects",
     teacherReviews = "teacherReviews",
     orders = "orders",
+    lessons = "lessons",
 };
 
 export const classesCollection = collection(db,collectionsKeys.classes);
@@ -30,3 +31,4 @@ export const studyMaterialsCollection = collection(db,collectionsKeys.studyMater
 export const subjectsCollection = collection(db,collectionsKeys.subjects);
 export const teacherReviewsCollection = collection(db,collectionsKeys.teacherReviews);
 export const ordersCollection = collection(db,collectionsKeys.orders);
+export const lessonsCollection = collection(db,collectionsKeys.lessons);

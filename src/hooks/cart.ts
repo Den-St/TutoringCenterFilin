@@ -79,10 +79,10 @@ export const useCart = () => {
 
         dataInputRef.current.value = data;
         signatureInputRef.current.value = signature;
-        // console.log('vvv',dataInputRef.current.value);
-        // console.log('bbb',signatureInputRef.current.value);
-        // console.log('ttt',json_string);
-        formRef.current?.submit();
+        console.log('vvv',dataInputRef.current.value);
+        console.log('bbb',signatureInputRef.current.value);
+        console.log('ttt',json_string);
+        // formRef.current?.submit();
     }
 
     return {onDeleteCartItem,cartItems,loading,onBuy,formRef,dataInputRef,signatureInputRef};

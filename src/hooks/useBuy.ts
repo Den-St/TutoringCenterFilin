@@ -1,6 +1,5 @@
 import { routes } from '@/consts/routes';
 import { useEffect } from 'react';
-import { useParams } from 'next/navigation';
 import { useAppSelector } from './redux';
 import { useState } from 'react';
 import { getIsAlredyInCart } from '@/firebase/db/cartItems/get/getIsAlreadyInCart';
@@ -26,7 +25,7 @@ export const useBuy = (type:CartItemTypeT,productId:string,productName:string) =
     const [isAlreadyInCart,setIsAlredyInCart] = useState(false);
 
     const fetchIsAlreadyInCart = async () => {
-        if(!userId || !productId) return;
+        if(!userId) return;
         setLoading(true);
         const res = await getIsAlredyInCart(userId,productId);
         setIsAlredyInCart(res);
@@ -38,7 +37,7 @@ export const useBuy = (type:CartItemTypeT,productId:string,productName:string) =
     },[userId,productId]);
 
     const onBuy = async () => {
-        if(!userId || !productId) return;
+        if(!userId) return;
         setLoading(true);
         await addCartItem({user:userId,product:productId,type,});
         setIsAlredyInCart(true);

@@ -21,7 +21,8 @@ export const routes = {
     freeTestItem:(id:string) => `/free-tests/${id}`,
     teachers:`/teachers`,
     teacher:(id:string) => `/teachers/${id}`,
-    afterPayment:(id:string) => `/after-payment?order_id=${id}`
+    afterPayment:(id:string) => `/after-payment?order_id=${id}`,
+    afterLessonOrder: `/after-lesson-order`,
 } as const;
 
 export const headerNavRoutes:Record<string,navRoutesType> = {

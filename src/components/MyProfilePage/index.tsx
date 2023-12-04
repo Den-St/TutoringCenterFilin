@@ -3,6 +3,7 @@ import { Button, Tabs } from 'antd';
 import type { TabsProps } from 'antd';
 import { PurchasedItemsComponent } from './PurchasedItemsComponent';
 import { EditTeacherInfo } from './EditTeacherInfo';
+import { LessonOrdersComponent } from '../LessonOrdersComponent';
 
 export const MyProfilePageComponent = () => {
     const {user,purchasedItems,loading,isOnEditing,onChangeTeacherInfo,onEditingToggle,onChangeChosenSubjects,chosenSubjects} = useMyProfile();
@@ -11,6 +12,11 @@ export const MyProfilePageComponent = () => {
           key: '1',
           label: 'Куплені товари',
           children: <PurchasedItemsComponent items={purchasedItems}/>,
+        },
+        {
+          key: '2',
+          label: 'Моі замовлення',
+          children: <LessonOrdersComponent/>,
         },
       ];
       console.log(chosenSubjects) 
