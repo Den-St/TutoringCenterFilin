@@ -72,17 +72,12 @@ export const useCart = () => {
         const data = base64_encode(json_string);
         const sign_string = getSignature(private_key || '',data);
         const signature = getStrToSignature(sign_string);
-
-        // console.log('data',data);
-        // console.log('signature',signature);
         setLoading(prev => ({...prev,buy:false}));
 
         dataInputRef.current.value = data;
         signatureInputRef.current.value = signature;
-        console.log('vvv',dataInputRef.current.value);
-        console.log('bbb',signatureInputRef.current.value);
-        console.log('ttt',json_string);
-        // formRef.current?.submit();
+
+        formRef.current?.submit();
     }
 
     return {onDeleteCartItem,cartItems,loading,onBuy,formRef,dataInputRef,signatureInputRef};

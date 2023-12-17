@@ -11,6 +11,7 @@ export const LessonOrdersComponent = () => {
             <div className="flex justify-between">
                 <Link href={routes.teacher(item.teacher.id)}>{item.teacher.name + ' ' + item.teacher.surname + ' ' + item.teacher.patronymic}</Link>
                 <p>{LessonStatusesToUA[item.status]}</p>
+                <p>{item.theme}</p>
                 <p>{item.link}</p>
                 <p>{item.date?.toDate().toLocaleString()}</p>
                 <p>{item.createdAt?.toDate()?.toLocaleString()}</p>
